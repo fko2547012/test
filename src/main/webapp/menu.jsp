@@ -16,7 +16,7 @@
 		<h2>メニュー</h2>
 		<div class="menu-container">
         <div class="menu-box-red">
-            <a href="student_list.jsp">学生管理</a>
+            <a href="StudentListServlet">学生管理</a>
         </div>
         <div class="menu-box-gre">
             <a href="#">成績管理</a>
