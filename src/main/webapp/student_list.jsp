@@ -105,7 +105,7 @@
 		
 		            <td>${s.classNum}</td>
 		
-		            <td>${s.entyear}</td>
+		            <td>${s.entYear}</td>
 		
 		            <td>在学</td>
 		
