@@ -9,11 +9,11 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-import bean.Student;
-import dao.StudentDAO;
+import bean.Subject;
+import dao.SubjectDAO;
 
-@WebServlet("/StudentListServlet")
-public class StudentListServlet extends HttpServlet {
+@WebServlet("/SubjectListServlet")
+public class SubjectListServlet extends HttpServlet {
 
     @Override
     protected void doGet(
@@ -23,19 +23,17 @@ public class StudentListServlet extends HttpServlet {
 
         try {
 
-            StudentDAO dao = new StudentDAO();
+            SubjectDAO dao = new SubjectDAO();
 
-            List<Student> list = dao.findAll();
+            List<Subject> list = dao.findAll();
 
-            request.setAttribute("studentList", list);
+            request.setAttribute("subjectList", list);
 
-            request.getRequestDispatcher("student_list.jsp")
+            request.getRequestDispatcher("subject_list.jsp")
                    .forward(request, response);
 
         } catch (Exception e) {
-
             e.printStackTrace();
-
         }
     }
 }
