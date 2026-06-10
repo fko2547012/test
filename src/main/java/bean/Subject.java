@@ -2,15 +2,15 @@ package bean;
 
 public class Subject {
 
-    private String code;
+    private String cd;
     private String name;
 
-    public String getCode() {
-        return code;
+    public String getCd() {
+        return cd;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setCd(String cd) {
+        this.cd = cd;
     }
 
     public String getName() {
