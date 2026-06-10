@@ -12,16 +12,10 @@
 <div class="wrapper">
 <%@ include file="sidebar.jsp" %>
 	<div class="content">
-		<h2>学生情報の変更が完了しました</h2>
-		
-		 
-		
-		<p>学生「${name}」の情報を更新しました。</p>
-		
-		 
+		<h2>学生情報の変更が完了しました</h2> 
 		
 		<br>
-		<a href="StudentList.action">学生一覧へ戻る</a>
+		<a href="StudentListServlet">学生一覧へ戻る</a>
 	</div>
 </div>
 <%@ include file="footer.jsp" %>
