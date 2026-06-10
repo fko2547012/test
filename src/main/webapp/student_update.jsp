@@ -32,57 +32,97 @@
 		
 		</c:if>
 		
+		<c:if test="${not empty error}">
+		    <p style="color:red;">
+		        ${error}
+		    </p>
+		</c:if>
 		 
+		<form action="StudentUpdateServlet" method="post">
+
+		    <label>学生番号</label><br>
+		    <input type="hidden"
+		           name="no"
+		           value="${student.no}">
+
+			${student.no}
+			<br>
 		
-		<form action="StudentUpdate.action" method="post">
-		
-		 
-		
-		    <label>学生番号</label><br>
-		
-		    <input type="text" name="no" value="${student.no}" readonly><br><br>
-		
-		 
-		
-		    <label>氏名</label><br>
-		
-		    <input type="text" name="name" value="${student.name}" required><br><br>
-		
-		 
-		
-		    <label>クラス</label><br>
-		
-		    <input type="text" name="classNo" value="${student.classNo}"><br><br>
-		
-		 
-		
-		    <label>入学年度</label><br>
-		
-		    <input type="text" name="year" value="${student.year}" readonly><br><br>
-		
-		 
-		
-		    <label>
-		
-		        <input type="checkbox" name="active"
-		
-		               <c:if test="${student.active}">checked</c:if>>
-		
-		        在学中
-		
-		    </label><br><br>
-		
-		 
-		
-		    <button type="submit">変更</button>
+		    <label>氏名</label><br>
+		    <input type="text"
+                   name="name"
+                   value="${student.name}"
+                   maxlength="30"
+                   required>
+					
+			<br>
+			
+		    <label>クラス</label><br>
+		    <select name="class_num">
+
+			    <c:forEach var="class_item"
+			               items="${class_num_list}">
+			
+			        <option value="${class_item}"
+			            <c:if test="${student.classNum == class_item}">
+			                selected
+			            </c:if>>
+			            ${class_item}
+			        </option>
+			
+			    </c:forEach>
+			
+			</select>
+			
+			<br>
+			
+		    <label>入学年度</label><br>
+		    <select name="ent_year" required>
+
+			    <option value="">
+			        --------
+			    </option>
+			
+			    <c:forEach var="year"
+			               items="${ent_year_list}">
+			
+			        <option value="${year}"
+			            <c:if test="${student.entYear == year}">
+			                selected
+			            </c:if>>
+			            ${year}
+			        </option>
+			
+			    </c:forEach>
+			
+			</select>
+			
+			<br>
+			
+			<tr>
+			    <th>在学中</th>
+			    <td>
+			        <input type="checkbox"
+			               name="attend"
+			               value="true"
+			               ${student.attend ? 'checked="checked"' : ''}>
+			    </td>
+			</tr>
+			
+			<br>
+			
+		    <button type="submit">
+		        変更
+		    </button>
 		
 		</form>
 		
-		 
-		
 		<br>
 		
-		<a href="StudentList.action">戻る</a>
+		<a href="StudentListServlet">
+		    戻る
+		</a>
+		
 	</div>
 </div>
 <%@ include file="footer.jsp" %>
