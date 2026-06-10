@@ -14,14 +14,8 @@
 	<div class="content">
 		<h2>学生情報の登録が完了しました</h2>
 		
-		 
-		
-		<p>学生「${name}」の情報を登録しました。</p>
-		
-		 
-		
 		<br>
-		<a href="StudentList.action">学生一覧へ</a>
+		<a href="StudentListServlet">学生一覧へ</a>
 	</div>
 </div>
 <%@ include file="footer.jsp" %>
