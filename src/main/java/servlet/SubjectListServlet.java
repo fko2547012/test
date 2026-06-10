@@ -27,6 +27,15 @@ public class SubjectListServlet extends HttpServlet {
 
             List<Subject> list = dao.findAll();
 
+            System.out.println("===== Subject List =====");
+            System.out.println("件数：" + list.size());
+
+            for (Subject s : list) {
+                System.out.println(
+                    s.getCd() + " : " + s.getName()
+                );
+            }
+
             request.setAttribute("subjectList", list);
 
             request.getRequestDispatcher("subject_list.jsp")
