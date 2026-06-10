@@ -13,6 +13,9 @@ public class Student {
 
     // クラス番号
     private String classNum;
+    
+    // 在学中かどうか
+    private boolean attend;
 
     // ===== getter / setter =====
 
@@ -46,5 +49,13 @@ public class Student {
 
     public void setClassNum(String classNum) {
         this.classNum = classNum;
+    }
+    
+    public boolean isAttend() {
+        return attend;
+    }
+
+    public void setAttend(boolean attend) {
+        this.attend = attend;
     }
 }
