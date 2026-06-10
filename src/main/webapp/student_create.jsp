@@ -25,17 +25,33 @@
 	<div class="container">
 	<h2>学生情報登録</h2>
 	
-	 
-	
-	    <form action="StudentCreateExecute.action" method="post">
+	<c:if test="${not empty error}">
+    	<p style="color:red;">
+    	    ${error}
+    	</p>
+	</c:if>
+		
+	<form action="StudentCreateServlet" method="post">
 	
 	<div class="form-group">
 	<label for="ent_year">入学年度</label>
-	<select name="ent_year" id="ent_year">
-	<option value="">--------</option>
-	<c:forEach var="year" items="${ent_year_list}">
-	<option value="${year}">${year}</option>
-	</c:forEach>
+	<select name="ent_year"
+	        id="ent_year"
+	        required>
+	
+	    <option value="">
+	        --------
+	    </option>
+	
+	    <c:forEach var="year"
+	               items="${ent_year_list}">
+	
+	    	<option value="${year}">
+	            ${year}
+	        </option>
+	
+	    </c:forEach>
+	
 	</select>
 	</div>
 	
@@ -43,14 +59,22 @@
 	
 	        <div class="form-group">
 	<label for="no">学生番号</label>
-	<input type="text" name="no" id="no" value="${no}" placeholder="学生番号を入力してください" maxlength="10" required>
+	<input type="text"
+       name="no"
+       id="no"
+       maxlength="10"
+       required>
 	</div>
 	
 	 
 	
 	        <div class="form-group">
 	<label for="name">氏名</label>
-	<input type="text" name="name" id="name" value="${name}" placeholder="氏名を入力してください" maxlength="30" required>
+	<input type="text"
+       name="name"
+       id="name"
+       maxlength="30"
+       required>
 	</div>
 	
 	 
@@ -72,11 +96,11 @@
 	
 	
 	
-	        <a href="StudentList.action" class="back-link">戻る</a>
+	        <a href="StudentListServlet" class="back-link">戻る</a>
 	
 	 
 	
-	    </form>
+	</form>
 	</div>
 </div>
  
