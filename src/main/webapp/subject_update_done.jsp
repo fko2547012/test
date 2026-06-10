@@ -21,16 +21,10 @@
 <%@ include file="sidebar.jsp" %>
 	<div class="content">
 		<h2>科目情報の変更が完了しました</h2>
-		
-		 
-		
-		<p>科目「${name}」の情報を更新しました。</p>
-		
-		 
-		
+				
 		<br>
 		
-		<a href="SubjectList.action">科目一覧へ戻る</a>
+		<a href="SubjectListServlet">科目一覧へ戻る</a>
 	</div>
 </div>
 
