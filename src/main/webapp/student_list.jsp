@@ -107,15 +107,27 @@
 		
 		            <td>${s.entYear}</td>
 		
-		            <td>在学</td>
+		            <td>
+
+					    <c:choose>
+					
+					        <c:when test="${s.attend}">
+					            ○
+					        </c:when>
+					
+					        <c:otherwise>
+					            ×
+					        </c:otherwise>
+					
+					    </c:choose>
+					
+					</td>
 		
 		            <td>
 		
-		                <a class="btn" href="StudentUpdate.action?no=${stu.no}">変更</a>
-		
-		                <a class="btn delete-btn" href="StudentDelete.action?no=${stu.no}"
-		
-		                   onclick="return confirm('削除しますか？');">削除</a>
+		                <a class="btn" href="StudentUpdateServlet?no=${s.no}">
+        					変更
+    					</a>
 		
 		            </td>
 		
