@@ -22,7 +22,7 @@
 
     <h2>成績登録</h2>
 
-    <!-- エラーメッセージ表示用 -->
+    <!-- エラー表示用 -->
     <c:if test="${not empty error}">
         <p class="error">${error}</p>
     </c:if>
@@ -68,10 +68,10 @@
         </form>
     </div>
 
-    <!-- 2. 成績入力・一覧エリア（検索結果がある場合のみ表示） -->
+    <!-- 2. 成績入力・一覧エリア -->
     <c:if test="${not empty testList}">
         <form action="TestRegistExecute.action" method="post">
-            <!-- 登録処理時に必要な検索条件を引き継ぐための隠しフィールド -->
+
             <input type="hidden" name="ent_year" value="${selectedYear}">
             <input type="hidden" name="class_num" value="${selectedClass}">
             <input type="hidden" name="subject_cd" value="${selectedSubject}">
