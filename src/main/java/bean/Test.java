@@ -7,7 +7,7 @@ public class Test {
     private School school;
     private String classNum;
     private int no;
-    private int point;
+    private Integer point;
 
     public Student getStudent() {
         return student;
@@ -49,11 +49,11 @@ public class Test {
         this.no = no;
     }
 
-    public int getPoint() {
+    public Integer getPoint() {
         return point;
     }
 
-    public void setPoint(int point) {
+    public void setPoint(Integer point) {
         this.point = point;
     }
 }
