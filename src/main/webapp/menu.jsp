@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c"
+    uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -19,12 +20,12 @@
             <a href="StudentListServlet">学生管理</a>
         </div>
         <div class="menu-box-gre">
-            <a href="#">成績管理</a>
-            <a href="test_regist.jsp">成績登録</a>
-            <a href="test_list.jsp">成績参照</a>
+            <a>成績管理</a>
+            <a href="TestRegist.action">成績登録</a>
+            <a href="TestListServlet">成績参照</a>
         </div>
         <div class="menu-box-bul">
-            <a href="subject_list.jsp">科目管理</a>
+            <a href="SubjectListServlet">科目管理</a>
         </div>
     </div>
 	</div>

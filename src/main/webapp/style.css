@@ -109,3 +109,26 @@ body {
 			white-space: nowrap;
 			border-radius: 10px;
 		}
+		
+		.header {
+		    justify-content: space-between;
+		    align-items: center;
+
+		    border: 1px solid #999;
+
+		    padding: 15px 25px;
+		}
+
+		.header-title {
+		    font-size: 32px;
+		    font-weight: bold;
+		}
+
+		.header-user {
+		    text-align: right;
+			background-color: #007BFF;
+		}
+
+		.header-user a {
+			text-align: right;
+		}

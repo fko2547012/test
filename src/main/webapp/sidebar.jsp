@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-
+<c:if test="${not empty user}">
 <div class="sidebar">
     <nav>
         <ul>
@@ -11,8 +11,10 @@
 			</ul>
             <li>成績管理</li>
             <ul>
-                <li><a href="#">成績登録</a></li>
-                <li><a href="#">成績参照</a></li>
+                <li><a href="TestRegist.action">成績登録</a></li>
+                <li><a href="TestUpdate.action">成績変更</a></li>
+                <li><a href="TestDelete.action">成績削除</a></li>
+                <li><a href="TestListServlet">成績参照</a></li>
             </ul>
 
             <li><a href="SubjectListServlet">科目管理</a></li>
@@ -23,3 +25,4 @@
         </ul>
     </nav>
 </div>
+</c:if>

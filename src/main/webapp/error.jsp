@@ -1,5 +1,15 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-<%@ include file="header.jsp" %>
-<%@ include file="sidebar.jsp" %>
-<p>エラーが発生しました</p>
-<%@ include file="footer.jsp" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>エラー</title>
+</head>
+<body>
+
+<h2>エラー発生</h2>
+
+<p>${error}</p>
+
+</body>
+</html>
