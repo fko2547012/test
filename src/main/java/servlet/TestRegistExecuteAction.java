@@ -28,9 +28,11 @@ public class TestRegistExecuteAction implements Action {
         String[] points = req.getParameterValues("point");
 
         HttpSession session = req.getSession();
-        Teacher teacher = (Teacher) session.getAttribute("user");
+        Teacher teacher =
+        	(Teacher) session.getAttribute("user");
 
-        School school = teacher.getSchool();
+        School school =
+            teacher.getSchool();
 
         TestDAO dao = new TestDAO();
 

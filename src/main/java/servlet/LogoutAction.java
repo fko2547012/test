@@ -7,14 +7,22 @@ import jakarta.servlet.http.HttpSession;
 import tool.Action;
 
 public class LogoutAction implements Action {
+
     @Override
-    public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
-        HttpSession session = req.getSession(false);
+    public void execute(
+            HttpServletRequest req,
+            HttpServletResponse res)
+            throws Exception {
+
+        HttpSession session =
+                req.getSession(false);
+
         if (session != null) {
             session.invalidate();
         }
-        
-        req.setAttribute("message", "ログアウトしました。");
-        req.getRequestDispatcher("/login.jsp").forward(req, res);
+
+        req.getRequestDispatcher(
+                "/logout.jsp")
+           .forward(req, res);
     }
 }

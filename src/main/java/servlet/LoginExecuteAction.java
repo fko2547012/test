@@ -3,8 +3,10 @@ package servlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import tool.Action;
+
 import bean.Teacher;
+import dao.TeacherDAO;
+import tool.Action;
 
 public class LoginExecuteAction implements Action {
     @Override
@@ -13,22 +15,33 @@ public class LoginExecuteAction implements Action {
         String id = req.getParameter("id");
         String password = req.getParameter("password");
 
-        if ("admin".equals(id) && "password".equals(password)) {
-            
-            Teacher teacher = new Teacher();
-            teacher.setId(id);
-            teacher.setName("大原太郎");
-            teacher.setAuthenticated(true);
-            
-            HttpSession session = req.getSession(true);
-            session.setAttribute("user", teacher);
+        TeacherDAO dao = new TeacherDAO();
 
-    
-            req.getRequestDispatcher("/menu.jsp").forward(req, res);
-            
+        Teacher teacher =
+            dao.login(id, password);
+
+        if (teacher != null) {
+
+            HttpSession session =
+                req.getSession();
+
+            session.setAttribute(
+                "user",
+                teacher);
+
+            req.getRequestDispatcher(
+                "/menu.jsp")
+               .forward(req, res);
+
         } else {
-            req.setAttribute("error", "ユーザーIDまたはパスワードが間違っています。");
-            req.getRequestDispatcher("/login.jsp").forward(req, res);
+
+            req.setAttribute(
+                "error",
+                "ユーザーIDまたはパスワードが間違っています。");
+
+            req.getRequestDispatcher(
+                "/login.jsp")
+               .forward(req, res);
         }
     }
 }
