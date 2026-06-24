@@ -40,6 +40,7 @@ public class StudentDAO {
             s.setName(rs.getString("NAME"));
             s.setEntYear(rs.getInt("ENT_YEAR"));
             s.setClassNum(rs.getString("CLASS_NUM"));
+            s.setAttend(rs.getBoolean("IS_ATTEND"));
 
             // Listへ追加
             list.add(s);
@@ -52,4 +53,116 @@ public class StudentDAO {
 
         return list;
     }
+    
+    public boolean insert(Student student) throws Exception {
+
+        Connection con = DBUtil.getConnection();
+
+        String sql =
+        	    "INSERT INTO STUDENT " +
+        	    "(NO, NAME, ENT_YEAR, CLASS_NUM, IS_ATTEND) " +
+        	    "VALUES (?, ?, ?, ?, ?)";
+
+        PreparedStatement st = con.prepareStatement(sql);
+
+        st.setString(1, student.getNo());
+        st.setString(2, student.getName());
+        st.setInt(3, student.getEntYear());
+        st.setString(4, student.getClassNum());
+        st.setBoolean(5, student.isAttend());
+
+        int count = st.executeUpdate();
+
+        st.close();
+        con.close();
+
+        return count > 0;
+    }
+    
+    public Student findByNo(String no) throws Exception {
+
+        Student student = null;
+
+        Connection con = DBUtil.getConnection();
+
+        String sql =
+            "SELECT * FROM STUDENT " +
+            "WHERE NO = ?";
+
+        PreparedStatement st =
+            con.prepareStatement(sql);
+
+        st.setString(1, no);
+
+        ResultSet rs =
+            st.executeQuery();
+
+        if (rs.next()) {
+
+            student = new Student();
+
+            student.setNo(
+                rs.getString("NO"));
+
+            student.setName(
+                rs.getString("NAME"));
+
+            student.setEntYear(
+                rs.getInt("ENT_YEAR"));
+
+            student.setClassNum(
+                rs.getString("CLASS_NUM"));
+            
+            student.setAttend(
+            	    rs.getBoolean("IS_ATTEND"));
+        }
+
+        rs.close();
+        st.close();
+        con.close();
+
+        return student;
+    }
+    
+    public boolean update(Student student)
+            throws Exception {
+
+        Connection con =
+            DBUtil.getConnection();
+
+        String sql =
+        	    "UPDATE STUDENT " +
+        	    "SET NAME = ?, " +
+        	    "    ENT_YEAR = ?, " +
+        	    "    CLASS_NUM = ?, " +
+        	    "    IS_ATTEND = ? " +
+        	    "WHERE NO = ?";
+
+        PreparedStatement st =
+            con.prepareStatement(sql);
+
+        st.setString(1,
+                student.getName());
+
+        st.setInt(2,
+                student.getEntYear());
+
+        st.setString(3,
+                student.getClassNum());
+
+        st.setBoolean(4,
+                student.isAttend());
+
+        st.setString(5,
+                student.getNo());
+        
+        int count =
+            st.executeUpdate();
+
+        st.close();
+        con.close();
+
+        return count > 0;
+    }
+    
 }
